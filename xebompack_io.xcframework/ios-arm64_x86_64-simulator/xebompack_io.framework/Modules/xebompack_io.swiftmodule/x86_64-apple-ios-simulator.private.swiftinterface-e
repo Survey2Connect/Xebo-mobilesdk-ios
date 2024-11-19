@@ -1,0 +1,38 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios17.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name xebompack_io
+import Foundation
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public protocol XeboSurveyDelegate {
+  func handleSurveyLoaded(response: [Swift.String : Swift.AnyObject])
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class XeboSurveyViewController : UIKit.UIViewController, xebompack_io.XeboSurveyDelegate {
+  @_Concurrency.MainActor(unsafe) public var surveyDelegate: (any xebompack_io.XeboSurveyDelegate)!
+  @_Concurrency.MainActor(unsafe) public var getSurveyLoadedResponse: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var surveyUrl: Swift.String!
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var thankyouTimeout: Swift.Double
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) public func handleSurveyLoaded(response: [Swift.String : Swift.AnyObject])
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class XeboSurveyView : UIKit.UIView, WebKit.WKScriptMessageHandler, WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) public var getSurveyLoadedResponse: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var surveyDelegate: (any xebompack_io.XeboSurveyDelegate)!
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @_Concurrency.MainActor(unsafe) public func loadFullscreenSurvey(parent: UIKit.UIViewController, delegate: any xebompack_io.XeboSurveyDelegate, surveyURL: Swift.String? = nil)
+  @_Concurrency.MainActor(unsafe) public func loadEmbedSurvey(_ surveyURL: Swift.String? = nil)
+  @_Concurrency.MainActor(unsafe) public func loadSurveyAfter(numberOfVisits visits: Swift.Int, parent: UIKit.UIViewController, delegate: any xebompack_io.XeboSurveyDelegate, surveyURL: Swift.String? = nil)
+  @_Concurrency.MainActor(unsafe) public func loadSurvey(_ surveyURL: Swift.String? = nil)
+  @objc deinit
+}
