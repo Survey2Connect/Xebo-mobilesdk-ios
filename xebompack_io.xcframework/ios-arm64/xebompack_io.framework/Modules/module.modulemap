@@ -1,0 +1,6 @@
+framework module xebompack_io {
+  umbrella header "xebompack_io.h"
+  export *
+
+  module * { export * }
+}

@@ -1,15 +1,43 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target arm64-apple-ios17.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name xebompack_io
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name xebompack_io
 import Foundation
 import Swift
+import SwiftUI
 import UIKit
 import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@_exported import xebompack_io
 public protocol XeboSurveyDelegate {
   func handleSurveyLoaded(response: [Swift.String : Swift.AnyObject])
+}
+public struct XeboSwiftUIWrapper : SwiftUI.UIViewRepresentable {
+  public var surveyURL: Swift.String?
+  public var delegate: (any XeboSurveyDelegate)?
+  @SwiftUI.Binding @_projectedValueProperty($isSurveyVisible) public var isSurveyVisible: Swift.Bool {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    nonmutating set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    nonmutating _modify
+  }
+  public var $isSurveyVisible: SwiftUI.Binding<Swift.Bool> {
+    get
+  }
+  public init(surveyURL: Swift.String? = nil, delegate: (any XeboSurveyDelegate)? = nil, isSurveyVisible: SwiftUI.Binding<Swift.Bool>)
+  @objc @_hasMissingDesignatedInitializers public class Coordinator : ObjectiveC.NSObject, XeboSurveyDelegate {
+    public func handleSurveyLoaded(response: [Swift.String : Swift.AnyObject])
+    @objc deinit
+  }
+  @_Concurrency.MainActor(unsafe) public func makeCoordinator() -> XeboSwiftUIWrapper.Coordinator
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: XeboSwiftUIWrapper.Context) -> XeboSurveyView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: XeboSurveyView, context: XeboSwiftUIWrapper.Context)
+  public static func presentFullScreenSurvey(surveyURL: Swift.String?, delegate: (any XeboSurveyDelegate)?)
+  public static func loadSurveyAfter(visits: Swift.Int, surveyURL: Swift.String?, delegate: (any XeboSurveyDelegate)?)
+  public typealias Body = Swift.Never
+  public typealias UIViewType = XeboSurveyView
 }
 @objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class XeboSurveyViewController : UIKit.UIViewController, XeboSurveyDelegate {
   @_Concurrency.MainActor(unsafe) public var surveyDelegate: (any XeboSurveyDelegate)!
