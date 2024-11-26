@@ -1,11 +1,13 @@
 //
-//  XeboSurveyCollectorSdk.h
-//  XeboSurveyCollectorSdk
+//  xebompack.io.h
+//  xebomapck.io
 //
 //  Created by Kuldeep Choudhary on 22/08/24.
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <SwiftUI/SwiftUI.h>
 
 //! Project version number for XeboSurveyCollectorSdk.
 FOUNDATION_EXPORT double XeboSurveyCollectorSdkVersionNumber;

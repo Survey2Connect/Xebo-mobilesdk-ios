@@ -70,6 +70,899 @@
       },
       {
         "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "xebompack_io",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "xebompack_io"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "XeboSwiftUIWrapper",
+        "printedName": "XeboSwiftUIWrapper",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "surveyURL",
+            "printedName": "surveyURL",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV9surveyURLSSSgvp",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV9surveyURLSSSgvp",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV9surveyURLSSSgvg",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV9surveyURLSSSgvg",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV9surveyURLSSSgvs",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV9surveyURLSSSgvs",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV9surveyURLSSSgvM",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV9surveyURLSSSgvM",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "delegate",
+            "printedName": "delegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any xebompack_io.XeboSurveyDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "XeboSurveyDelegate",
+                    "printedName": "any xebompack_io.XeboSurveyDelegate",
+                    "usr": "s:12xebompack_io18XeboSurveyDelegateP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV8delegateAA0C14SurveyDelegate_pSgvp",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV8delegateAA0C14SurveyDelegate_pSgvp",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any xebompack_io.XeboSurveyDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "XeboSurveyDelegate",
+                        "printedName": "any xebompack_io.XeboSurveyDelegate",
+                        "usr": "s:12xebompack_io18XeboSurveyDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV8delegateAA0C14SurveyDelegate_pSgvg",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV8delegateAA0C14SurveyDelegate_pSgvg",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any xebompack_io.XeboSurveyDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "XeboSurveyDelegate",
+                        "printedName": "any xebompack_io.XeboSurveyDelegate",
+                        "usr": "s:12xebompack_io18XeboSurveyDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV8delegateAA0C14SurveyDelegate_pSgvs",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV8delegateAA0C14SurveyDelegate_pSgvs",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV8delegateAA0C14SurveyDelegate_pSgvM",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV8delegateAA0C14SurveyDelegate_pSgvM",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isSurveyVisible",
+            "printedName": "isSurveyVisible",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV15isSurveyVisibleSbvp",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV15isSurveyVisibleSbvp",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "ProjectedValueProperty",
+              "AccessControl",
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV15isSurveyVisibleSbvg",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV15isSurveyVisibleSbvg",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV15isSurveyVisibleSbvs",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV15isSurveyVisibleSbvs",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV15isSurveyVisibleSbvM",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV15isSurveyVisibleSbvM",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "$isSurveyVisible",
+            "printedName": "$isSurveyVisible",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Binding",
+                "printedName": "SwiftUI.Binding<Swift.Bool>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:7SwiftUI7BindingV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV16$isSurveyVisible0D2UI7BindingVySbGvp",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV16$isSurveyVisible0D2UI7BindingVySbGvp",
+            "moduleName": "xebompack_io",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Binding",
+                    "printedName": "SwiftUI.Binding<Swift.Bool>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:7SwiftUI7BindingV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV16$isSurveyVisible0D2UI7BindingVySbGvg",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV16$isSurveyVisible0D2UI7BindingVySbGvg",
+                "moduleName": "xebompack_io",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(surveyURL:delegate:isSurveyVisible:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "XeboSwiftUIWrapper",
+                "printedName": "xebompack_io.XeboSwiftUIWrapper",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any xebompack_io.XeboSurveyDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "XeboSurveyDelegate",
+                    "printedName": "any xebompack_io.XeboSurveyDelegate",
+                    "usr": "s:12xebompack_io18XeboSurveyDelegateP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Binding",
+                "printedName": "SwiftUI.Binding<Swift.Bool>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:7SwiftUI7BindingV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV9surveyURL8delegate15isSurveyVisibleACSSSg_AA0cJ8Delegate_pSg0D2UI7BindingVySbGtcfc",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV9surveyURL8delegate15isSurveyVisibleACSSSg_AA0cJ8Delegate_pSg0D2UI7BindingVySbGtcfc",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Coordinator",
+            "printedName": "Coordinator",
+            "children": [
+              {
+                "kind": "Function",
+                "name": "handleSurveyLoaded",
+                "printedName": "handleSurveyLoaded(response:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : AnyObject]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "AnyObject"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV11CoordinatorC18handleSurveyLoaded8responseySDySSyXlG_tF",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV11CoordinatorC18handleSurveyLoaded8responseySDySSyXlG_tF",
+                "moduleName": "xebompack_io",
+                "declAttributes": [
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Coordinator",
+                    "printedName": "xebompack_io.XeboSwiftUIWrapper.Coordinator",
+                    "usr": "s:12xebompack_io18XeboSwiftUIWrapperV11CoordinatorC"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV11CoordinatorCAEycfc",
+                "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV11CoordinatorCAEycfc",
+                "moduleName": "xebompack_io",
+                "overriding": true,
+                "implicit": true,
+                "objc_name": "init",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC",
+                  "Override"
+                ],
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Class",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV11CoordinatorC",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV11CoordinatorC",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "superclassUsr": "c:objc(cs)NSObject",
+            "hasMissingDesignatedInitializers": true,
+            "superclassNames": [
+              "ObjectiveC.NSObject"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "XeboSurveyDelegate",
+                "printedName": "XeboSurveyDelegate",
+                "usr": "s:12xebompack_io18XeboSurveyDelegateP",
+                "mangledName": "$s12xebompack_io18XeboSurveyDelegateP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CVarArg",
+                "printedName": "CVarArg",
+                "usr": "s:s7CVarArgP",
+                "mangledName": "$ss7CVarArgP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "_KeyValueCodingAndObservingPublishing",
+                "printedName": "_KeyValueCodingAndObservingPublishing",
+                "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+                "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "_KeyValueCodingAndObserving",
+                "printedName": "_KeyValueCodingAndObserving",
+                "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+                "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomStringConvertible",
+                "printedName": "CustomStringConvertible",
+                "usr": "s:s23CustomStringConvertibleP",
+                "mangledName": "$ss23CustomStringConvertibleP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "CustomDebugStringConvertible",
+                "printedName": "CustomDebugStringConvertible",
+                "usr": "s:s28CustomDebugStringConvertibleP",
+                "mangledName": "$ss28CustomDebugStringConvertibleP"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "makeCoordinator",
+            "printedName": "makeCoordinator()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Coordinator",
+                "printedName": "xebompack_io.XeboSwiftUIWrapper.Coordinator",
+                "usr": "s:12xebompack_io18XeboSwiftUIWrapperV11CoordinatorC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV15makeCoordinatorAC0G0CyF",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV15makeCoordinatorAC0G0CyF",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "makeUIView",
+            "printedName": "makeUIView(context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "XeboSurveyView",
+                "printedName": "xebompack_io.XeboSurveyView",
+                "usr": "c:@M@xebompack_io@objc(cs)XeboSurveyView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewRepresentableContext",
+                "printedName": "SwiftUI.UIViewRepresentableContext<xebompack_io.XeboSwiftUIWrapper>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "XeboSwiftUIWrapper",
+                    "printedName": "xebompack_io.XeboSwiftUIWrapper",
+                    "usr": "s:12xebompack_io18XeboSwiftUIWrapperV"
+                  }
+                ],
+                "usr": "s:7SwiftUI26UIViewRepresentableContextV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV10makeUIView7contextAA0C10SurveyViewC0D2UI0G20RepresentableContextVyACG_tF",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV10makeUIView7contextAA0C10SurveyViewC0D2UI0G20RepresentableContextVyACG_tF",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "updateUIView",
+            "printedName": "updateUIView(_:context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "XeboSurveyView",
+                "printedName": "xebompack_io.XeboSurveyView",
+                "usr": "c:@M@xebompack_io@objc(cs)XeboSurveyView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewRepresentableContext",
+                "printedName": "SwiftUI.UIViewRepresentableContext<xebompack_io.XeboSwiftUIWrapper>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "XeboSwiftUIWrapper",
+                    "printedName": "xebompack_io.XeboSwiftUIWrapper",
+                    "usr": "s:12xebompack_io18XeboSwiftUIWrapperV"
+                  }
+                ],
+                "usr": "s:7SwiftUI26UIViewRepresentableContextV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV12updateUIView_7contextyAA0C10SurveyViewC_0D2UI0G20RepresentableContextVyACGtF",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV12updateUIView_7contextyAA0C10SurveyViewC_0D2UI0G20RepresentableContextVyACGtF",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "presentFullScreenSurvey",
+            "printedName": "presentFullScreenSurvey(surveyURL:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any xebompack_io.XeboSurveyDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "XeboSurveyDelegate",
+                    "printedName": "any xebompack_io.XeboSurveyDelegate",
+                    "usr": "s:12xebompack_io18XeboSurveyDelegateP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV23presentFullScreenSurvey9surveyURL8delegateySSSg_AA0cI8Delegate_pSgtFZ",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV23presentFullScreenSurvey9surveyURL8delegateySSSg_AA0cI8Delegate_pSgtFZ",
+            "moduleName": "xebompack_io",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadSurveyAfter",
+            "printedName": "loadSurveyAfter(visits:surveyURL:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any xebompack_io.XeboSurveyDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "XeboSurveyDelegate",
+                    "printedName": "any xebompack_io.XeboSurveyDelegate",
+                    "usr": "s:12xebompack_io18XeboSurveyDelegateP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12xebompack_io18XeboSwiftUIWrapperV15loadSurveyAfter6visits9surveyURL8delegateySi_SSSgAA0cG8Delegate_pSgtFZ",
+            "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV15loadSurveyAfter6visits9surveyURL8delegateySi_SSSgAA0cG8Delegate_pSgtFZ",
+            "moduleName": "xebompack_io",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:12xebompack_io18XeboSwiftUIWrapperV",
+        "mangledName": "$s12xebompack_io18XeboSwiftUIWrapperV",
+        "moduleName": "xebompack_io",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "UIViewRepresentable",
+            "printedName": "UIViewRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "UIViewType",
+                "printedName": "UIViewType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "XeboSurveyView",
+                    "printedName": "xebompack_io.XeboSurveyView",
+                    "usr": "c:@M@xebompack_io@objc(cs)XeboSurveyView"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Coordinator",
+                "printedName": "Coordinator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Coordinator",
+                    "printedName": "xebompack_io.XeboSwiftUIWrapper.Coordinator",
+                    "usr": "s:12xebompack_io18XeboSwiftUIWrapperV11CoordinatorC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI19UIViewRepresentableP",
+            "mangledName": "$s7SwiftUI19UIViewRepresentableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "View",
+            "printedName": "View",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Body",
+                "printedName": "Body",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Never",
+                    "printedName": "Swift.Never",
+                    "usr": "s:s5NeverO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI4ViewP",
+            "mangledName": "$s7SwiftUI4ViewP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -1464,42 +2357,49 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/sheetal\/Downloads\/xebompack.io\/xebompack.io\/XeboSurveyViewController.swift",
+      "filePath": "\/Users\/sheetal\/Documents\/mobile-sdk\/xebompack.io\/XeboSwiftUIWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1228,
+      "length": 11,
+      "value": "\"xebompack_io.Coordinator\""
+    },
+    {
+      "filePath": "\/Users\/sheetal\/Documents\/mobile-sdk\/xebompack.io\/XeboSurveyViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 367,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sheetal\/Downloads\/xebompack.io\/xebompack.io\/XeboSurveyViewController.swift",
+      "filePath": "\/Users\/sheetal\/Documents\/mobile-sdk\/xebompack.io\/XeboSurveyViewController.swift",
       "kind": "FloatLiteral",
       "offset": 463,
       "length": 3,
       "value": "3.0"
     },
     {
-      "filePath": "\/Users\/sheetal\/Downloads\/xebompack.io\/xebompack.io\/Helpers\/UserDefaults.swift",
+      "filePath": "\/Users\/sheetal\/Documents\/mobile-sdk\/xebompack.io\/Helpers\/UserDefaults.swift",
       "kind": "StringLiteral",
       "offset": 279,
       "length": 9,
       "value": "\"Visits:\""
     },
     {
-      "filePath": "\/Users\/sheetal\/Downloads\/xebompack.io\/xebompack.io\/XeboSurveyView.swift",
+      "filePath": "\/Users\/sheetal\/Documents\/mobile-sdk\/xebompack.io\/XeboSurveyView.swift",
       "kind": "StringLiteral",
       "offset": 516,
       "length": 19,
       "value": "\"surveyLoadStarted\""
     },
     {
-      "filePath": "\/Users\/sheetal\/Downloads\/xebompack.io\/xebompack.io\/XeboSurveyView.swift",
+      "filePath": "\/Users\/sheetal\/Documents\/mobile-sdk\/xebompack.io\/XeboSurveyView.swift",
       "kind": "StringLiteral",
       "offset": 578,
       "length": 17,
       "value": "\"surveyCompleted\""
     },
     {
-      "filePath": "\/Users\/sheetal\/Downloads\/xebompack.io\/xebompack.io\/XeboSurveyView.swift",
+      "filePath": "\/Users\/sheetal\/Documents\/mobile-sdk\/xebompack.io\/XeboSurveyView.swift",
       "kind": "BooleanLiteral",
       "offset": 648,
       "length": 5,
