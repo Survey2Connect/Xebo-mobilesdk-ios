@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "xebompack.io"
-  spec.version      = "1.0"
+  spec.version      = "1.1"
   spec.summary      = "A short description of xebompack.io."
 
   spec.description  = "Xebo Survey Collector Sdk"
@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
 
   spec.author       = { "sheetal" => "sheetal.a@xebo.ai" }
 
-  spec.source       = { :git => "https://github.com/Survey2Connect/Xebo-mobilesdk-ios.git", :tag => "1.0" }
+  spec.source       = { :git => "https://github.com/Survey2Connect/Xebo-mobilesdk-ios.git", :tag => "1.1" }
 
   spec.ios.deployment_target   = '13.0'
   spec.vendored_frameworks = 'xebompack_io.xcframework'
