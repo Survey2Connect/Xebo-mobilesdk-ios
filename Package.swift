@@ -20,7 +20,7 @@ let package = Package(
         .binaryTarget(
             name: "xebompack_io",
             url: "https://github.com/Survey2Connect/Xebo-mobilesdk-ios/releases/download/1.1/xebompack_io.xcframework.zip",
-            checksum: "59f8588089fda05da922dee6870c7943c889f374e32e72d9ef1e60c93231add8"
+            checksum: "671be9267bc0b880a33c2a8140601b2befe8d5f83da5083d490d6e6eef035223"
         )
     ]
 )
