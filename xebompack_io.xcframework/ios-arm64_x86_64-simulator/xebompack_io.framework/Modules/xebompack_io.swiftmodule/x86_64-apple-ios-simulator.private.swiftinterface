@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name xebompack_io
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name xebompack_io
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import Foundation
 import Swift
 import SwiftUI
@@ -26,17 +27,9 @@ public protocol XeboSurveyDelegate {
   @_Concurrency.MainActor @preconcurrency public var $isSurveyVisible: SwiftUICore.Binding<Swift.Bool> {
     get
   }
-  @SwiftUICore.Binding @_projectedValueProperty($embeddedSurveyURL) @_Concurrency.MainActor @preconcurrency public var embeddedSurveyURL: Swift.String? {
-    get
-    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-    nonmutating set
-    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-    nonmutating _modify
-  }
-  @_Concurrency.MainActor @preconcurrency public var $embeddedSurveyURL: SwiftUICore.Binding<Swift.String?> {
-    get
-  }
-  @_Concurrency.MainActor @preconcurrency public init(surveyURL: Swift.String? = nil, delegate: (any XeboSurveyDelegate)? = nil, isSurveyVisible: SwiftUICore.Binding<Swift.Bool>, embeddedSurveyURL: SwiftUICore.Binding<Swift.String?>)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(surveyURL: Swift.String? = nil, delegate: (any XeboSurveyDelegate)? = nil, isSurveyVisible: SwiftUICore.Binding<Swift.Bool>)
+  #endif
   @objc @_hasMissingDesignatedInitializers public class Coordinator : ObjectiveC.NSObject, XeboSurveyDelegate {
     public func handleSurveyLoaded(response: [Swift.String : Swift.AnyObject])
     @objc deinit
@@ -44,9 +37,15 @@ public protocol XeboSurveyDelegate {
   @_Concurrency.MainActor @preconcurrency public func makeCoordinator() -> XeboSwiftUIWrapper.Coordinator
   @_Concurrency.MainActor @preconcurrency public func makeUIView(context: XeboSwiftUIWrapper.Context) -> XeboSurveyView
   @_Concurrency.MainActor @preconcurrency public func updateUIView(_ uiView: XeboSurveyView, context: XeboSwiftUIWrapper.Context)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public static func presentFullScreenSurvey(surveyURL: Swift.String?, delegate: (any XeboSurveyDelegate)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public static func loadSurveyAfter(visits: Swift.Int, surveyURL: Swift.String?, delegate: (any XeboSurveyDelegate)?)
-  @_Concurrency.MainActor @preconcurrency public static func presentPopupSurvey(surveyURL: Swift.String?, delegate: (any XeboSurveyDelegate)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public static func loadLowestResponseSurvey(from uuids: [Swift.String], apiKey: Swift.String? = nil, delegate: (any XeboSurveyDelegate)?)
+  #endif
   public typealias Body = Swift.Never
   public typealias UIViewType = XeboSurveyView
 }
@@ -57,23 +56,43 @@ public protocol XeboSurveyDelegate {
   @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var thankyouTimeout: Swift.Double
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency public func handleSurveyLoaded(response: [Swift.String : Swift.AnyObject])
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @IBDesignable @_Concurrency.MainActor @preconcurrency public class XeboSurveyView : UIKit.UIView, WebKit.WKScriptMessageHandler, WebKit.WKNavigationDelegate {
   @_Concurrency.MainActor @preconcurrency public var getSurveyLoadedResponse: Swift.Bool
   @_Concurrency.MainActor @preconcurrency public var surveyDelegate: (any XeboSurveyDelegate)!
   @_Concurrency.MainActor @preconcurrency @objc public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func loadFullscreenSurvey(parent: UIKit.UIViewController, delegate: any XeboSurveyDelegate, surveyURL: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func loadEmbedSurvey(_ surveyURL: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func loadSurveyAfter(numberOfVisits visits: Swift.Int, parent: UIKit.UIViewController, delegate: any XeboSurveyDelegate, surveyURL: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func loadLowestResponseSurvey(from uuids: [Swift.String], apiKey: Swift.String? = nil, parent: UIKit.UIViewController, delegate: any XeboSurveyDelegate)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func loadSurvey(_ surveyURL: Swift.String? = nil)
-  @_Concurrency.MainActor @preconcurrency public func loadPopupSurvey(parent: UIKit.UIViewController, delegate: any XeboSurveyDelegate, surveyURL: Swift.String? = nil)
+  #endif
   @objc deinit
 }
 extension XeboSwiftUIWrapper : Swift.Sendable {}
