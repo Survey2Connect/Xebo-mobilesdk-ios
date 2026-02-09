@@ -41,11 +41,9 @@ public protocol XeboSurveyDelegate {
   @_Concurrency.MainActor @preconcurrency public static func presentFullScreenSurvey(surveyURL: Swift.String?, delegate: (any XeboSurveyDelegate)?)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency public static func loadSurveyAfter(visits: Swift.Int, surveyURL: Swift.String?, delegate: (any XeboSurveyDelegate)?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public static func loadLowestResponseSurvey(from uuids: [Swift.String], apiKey: Swift.String? = nil, delegate: (any XeboSurveyDelegate)?)
   #endif
+  @_Concurrency.MainActor @preconcurrency public static func preWarmSurvey()
   public typealias Body = Swift.Never
   public typealias UIViewType = XeboSurveyView
 }
@@ -93,6 +91,7 @@ public protocol XeboSurveyDelegate {
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func loadSurvey(_ surveyURL: Swift.String? = nil)
   #endif
+  @_Concurrency.MainActor @preconcurrency public static func preWarmSurvey()
   @objc deinit
 }
 extension XeboSwiftUIWrapper : Swift.Sendable {}
