@@ -1,8 +1,9 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
 // swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name xebompack_io
-// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
 import Foundation
+import Network
 import Swift
 import SwiftUI
 import UIKit
@@ -27,8 +28,9 @@ public protocol XeboSurveyDelegate {
   @_Concurrency.MainActor @preconcurrency public var $isSurveyVisible: SwiftUICore.Binding<Swift.Bool> {
     get
   }
+  @_Concurrency.MainActor @preconcurrency public var theme: XeboAppTheme?
   #if compiler(>=5.3) && $NonescapableTypes
-  @_Concurrency.MainActor @preconcurrency public init(surveyURL: Swift.String? = nil, delegate: (any XeboSurveyDelegate)? = nil, isSurveyVisible: SwiftUICore.Binding<Swift.Bool>)
+  @_Concurrency.MainActor @preconcurrency public init(surveyURL: Swift.String? = nil, delegate: (any XeboSurveyDelegate)? = nil, isSurveyVisible: SwiftUICore.Binding<Swift.Bool>, theme: XeboAppTheme? = nil)
   #endif
   @objc @_hasMissingDesignatedInitializers public class Coordinator : ObjectiveC.NSObject, XeboSurveyDelegate {
     public func handleSurveyLoaded(response: [Swift.String : Swift.AnyObject])
@@ -60,6 +62,494 @@ public protocol XeboSurveyDelegate {
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   #endif
+  @objc deinit
+}
+public enum XeboQuestionType : Swift.String, Swift.Codable {
+  case singleChoice
+  case multipleChoice
+  case dropdown
+  case singleTextBox
+  case multipleTextBox
+  case nps
+  case multiNps
+  case rating
+  case multiRating
+  case thankYou
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct XeboSurveyPage : Swift.Codable {
+  public let enabled: Swift.Bool
+  public let content: Swift.String?
+  public let buttonText: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboSurvey : Swift.Codable {
+  public let id: Swift.String
+  public let name: Swift.String
+  public let projectId: Swift.String?
+  public let theme: XeboTheme?
+  public let questions: [XeboQuestion]
+  public let introPage: XeboSurveyPage?
+  public let thankYouPage: XeboSurveyPage?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboQuestion : Swift.Codable {
+  public let id: Swift.String
+  public let type: XeboQuestionType
+  public let title: Swift.String
+  public let subtitle: Swift.String?
+  public let placeholder: Swift.String?
+  public let isRequired: Swift.Bool
+  public let options: [XeboChoice]?
+  public let columns: [XeboChoice]?
+  public let npsLabels: XeboNPSLabels?
+  public let followUpQuestion: Swift.String?
+  public let conditionalFollowUps: [XeboConditionalFollowUp]?
+  public let redirectURL: Swift.String?
+  public let ratingStyle: Swift.String?
+  public let showColLabels: Swift.Bool?
+  public let ratingColor: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboConditionalFollowUp : Swift.Codable {
+  public let minRating: Swift.Int
+  public let maxRating: Swift.Int
+  public let followUpQuestion: Swift.String
+  public let questionId: Swift.String?
+  public let followUpType: XeboQuestionType?
+  public let followUpOptions: [XeboChoice]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboChoice : Swift.Codable {
+  public let id: Swift.String
+  public let text: Swift.String
+  public let value: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboNPSLabels : Swift.Codable {
+  public let lower: Swift.String
+  public let upper: Swift.String
+  public let detractorColor: Swift.String?
+  public let passiveColor: Swift.String?
+  public let promoterColor: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum XeboThemeMode : Swift.String, Swift.Codable {
+  case light
+  case dark
+  case auto
+  case custom
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct XeboTheme : Swift.Codable {
+  public let transparency: Swift.Float?
+  public let mode: XeboThemeMode?
+  public let primaryColor: Swift.String?
+  public let secondaryColor: Swift.String?
+  public let backgroundColor: Swift.String?
+  public let textColor: Swift.String?
+  public let fontFamily: Swift.String?
+  public let fontSizeBase: Swift.Int?
+  public let toasterHeight: Swift.Int?
+  public let overlayHeight: Swift.Int?
+  public let cornerRadius: Swift.Int?
+  public let animationDuration: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAnswerValue : Swift.Codable {
+  public let rowId: Swift.String
+  public let colId: Swift.String?
+  public let text: Swift.String?
+  public let type: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(rowId: Swift.String, colId: Swift.String? = nil, text: Swift.String? = nil, type: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAnswer : Swift.Codable {
+  public let questionId: Swift.String
+  public let value: [XeboAnswerValue]
+  public init(questionId: Swift.String, value: [XeboAnswerValue])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboUserData {
+  public var name: Swift.String?
+  public var email: Swift.String?
+  public var phone: Swift.String?
+  public var uniqueId: Swift.String?
+  public var country: Swift.String?
+  public var city: Swift.String?
+  public var region: Swift.String?
+  public var eData: [Swift.String : Swift.String]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(name: Swift.String? = nil, email: Swift.String? = nil, phone: Swift.String? = nil, uniqueId: Swift.String? = nil, country: Swift.String? = nil, city: Swift.String? = nil, region: Swift.String? = nil, eData: [Swift.String : Swift.String]? = nil)
+  #endif
+}
+public struct XeboQualityFlags : Swift.Codable {
+  public let data: XeboQualityFlags.QualityData
+  public let straightLining: XeboQualityFlags.StraightLining
+  public struct QualityData : Swift.Codable {
+    public let timePerQues: [Swift.String : XeboQualityFlags.TimeOnQuestion]
+    public let survey: XeboQualityFlags.SurveyTiming
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct TimeOnQuestion : Swift.Codable {
+    public let timeOnQues: Swift.Double
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct SurveyTiming : Swift.Codable {
+    public let totalTimeDuration: Swift.Double
+    public let netTimeDuration: Swift.Double
+    public let curTime: Swift.String
+    public let startTime: Swift.Int64
+    public let backTrackCount: Swift.Int
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct StraightLining : Swift.Codable {
+    public let questionList: [Swift.String]
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboDeviceInfo : Swift.Codable {
+  public let type: Swift.String
+  public let os: Swift.String
+  public let browser: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboGeolocation : Swift.Codable {
+  public let type: Swift.String
+  public let coordinates: [Swift.Double?]
+  public let country: Swift.String?
+  public let city: Swift.String?
+  public let region: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboQueuedResponse : Swift.Codable {
+  public let responseId: Swift.String
+  public let surveyId: Swift.String
+  public let collectorUUID: Swift.String
+  public let mode: Swift.String
+  public let status: Swift.String
+  public let startTime: Swift.String
+  public let endTime: Swift.String
+  public let answers: [XeboAnswer]
+  public let customVariables: [Swift.String : Swift.String]?
+  public let qualityFlags: XeboQualityFlags?
+  public let deviceInfo: XeboDeviceInfo?
+  public let geolocation: XeboGeolocation?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboFeedbackRequest : Swift.Encodable {
+  public let collector_id: Swift.String
+  public let responses: [XeboFeedbackResponseItem]
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct XeboFeedbackResponseItem : Swift.Encodable {
+  public let response_status: Swift.String
+  public let mode: Swift.String
+  public let userAgent: Swift.String
+  public let start_time: Swift.String?
+  public let end_time: Swift.String?
+  public let time_spent: Swift.Int?
+  public let custom_variables: [Swift.String : Swift.String]?
+  public let qualityFlags: XeboQualityFlags?
+  public let deviceInfo: XeboDeviceInfo?
+  public let geoLocation: XeboGeolocation?
+  public let questions: [XeboFeedbackQuestionAnswer]
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct XeboFeedbackQuestionAnswer : Swift.Encodable {
+  public let uuid: Swift.String
+  public let answer: [XeboFeedbackAnswerValue]
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct XeboFeedbackAnswerValue : Swift.Encodable {
+  public let row_id: Swift.String?
+  public let col_id: Swift.String?
+  public let text: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(row_id: Swift.String? = nil, col_id: Swift.String? = nil, text: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboToasterView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onSkip: (() -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(survey: XeboSurvey)
+  @_Concurrency.MainActor @preconcurrency public func setQuestionView(_ view: UIKit.UIView)
+  @_Concurrency.MainActor @preconcurrency public func present(on parentView: UIKit.UIView)
+  @_Concurrency.MainActor @preconcurrency public func dismiss()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboNPSQuestionView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public var onAdditionalAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion, isLastQuestion: Swift.Bool = false)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboDropdownQuestionView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboSingleChoiceQuestionView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion, isLastQuestion: Swift.Bool = false)
+  @objc deinit
+}
+public enum XeboEnvironment : Swift.String {
+  case production
+  case uat
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class XeboNetworkService {
+  public static let shared: XeboNetworkService
+  public func configure(apiKey: Swift.String, zone: Swift.String = "az1", environment: XeboEnvironment = .production)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboThankYouView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion)
+  @objc deinit
+}
+public struct XeboAppTheme {
+  public var primaryColor: UIKit.UIColor?
+  public var backgroundColor: UIKit.UIColor?
+  public var textColor: UIKit.UIColor?
+  public var fontFamily: Swift.String?
+  public var cornerRadius: CoreFoundation.CGFloat?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(primaryColor: UIKit.UIColor? = nil, backgroundColor: UIKit.UIColor? = nil, textColor: UIKit.UIColor? = nil, fontFamily: Swift.String? = nil, cornerRadius: CoreFoundation.CGFloat? = nil)
+  #endif
+}
+@_hasMissingDesignatedInitializers public class XeboThemeEngine {
+  public static let shared: XeboThemeEngine
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func setTheme(_ theme: XeboTheme?)
+  #endif
+  public func configureAppTheme(_ theme: XeboAppTheme)
+  public func configureAppTheme(primaryColor: UIKit.UIColor)
+  public var primaryColor: UIKit.UIColor {
+    get
+  }
+  public var backgroundColor: UIKit.UIColor {
+    get
+  }
+  public var textColor: UIKit.UIColor {
+    get
+  }
+  public func font(size: CoreFoundation.CGFloat, weight: UIKit.UIFont.Weight = .regular) -> UIKit.UIFont
+  public func applyCornerRadius(to view: UIKit.UIView)
+  @objc deinit
+}
+public enum XeboRatingVariant : Swift.String, Swift.Codable {
+  case star
+  case heart
+  case circle
+  case tile
+  case emoji
+  case numeric
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func from(apiType: Swift.String?) -> XeboRatingVariant
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboRatingQuestionView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion, variant: XeboRatingVariant = .star, maxRating: Swift.Int = 5, isLastQuestion: Swift.Bool = false)
+  @objc deinit
+}
+public struct XeboAPIMainResponse : Swift.Decodable {
+  public let data: XeboAPISurveyData
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPISurveyData : Swift.Decodable {
+  public let uuid: Swift.String
+  public let displayTitle: Swift.String
+  public let projectId: Swift.String?
+  public let blocks: [XeboAPIBlock]
+  public let introPage: XeboAPIIntroPage?
+  public let thankYouPage: XeboAPIThankYouPage?
+  public func toNativeSurvey() -> XeboSurvey
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIBlock : Swift.Decodable {
+  public let questions: [XeboAPIQuestionContainer]
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIQuestionContainer : Swift.Decodable {
+  public let question: XeboAPIQuestionDef
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIQuestionDef : Swift.Decodable {
+  public let uuid: Swift.String
+  public let title: Swift.String?
+  public let quesType: Swift.String?
+  public let helperText: XeboAPIHelperText?
+  public let required: XeboAPIRequired?
+  public let options: XeboAPIOptions?
+  public let settings: XeboAPISettings?
+  public let placeholder: XeboAPIPlaceholder?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIHelperText : Swift.Decodable {
+  public let text: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIRequired : Swift.Decodable {
+  public let enabled: Swift.Bool?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIPlaceholder : Swift.Decodable {
+  public let text: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIOptions : Swift.Decodable {
+  public let row: [XeboAPIRowCol]
+  public let col: [XeboAPIRowCol]?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIRowCol : Swift.Decodable {
+  public let uuid: Swift.String
+  public let text: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPISettings : Swift.Decodable {
+  public let nps: XeboAPINPSSettings?
+  public let configScale: [XeboAPIConfigScale]?
+  public let rating: XeboAPIRatingSettings?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIRatingSettings : Swift.Decodable {
+  public let type: Swift.String?
+  public let colLabel: Swift.Bool?
+  public let color: Swift.String?
+  public let position: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPINPSSettings : Swift.Decodable {
+  public let colors: XeboAPINPSColors?
+  public let leftLabel: Swift.String?
+  public let rightLabel: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPINPSColors : Swift.Decodable {
+  public let detractor: Swift.String?
+  public let passive: Swift.String?
+  public let promoter: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIConfigScale : Swift.Decodable {
+  public let uuid: Swift.String
+  public let scale: XeboAPIScaleRange
+  public let enabled: Swift.Bool?
+  public let qId: [Swift.String]
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIScaleRange : Swift.Decodable {
+  public let min: Swift.Int
+  public let max: Swift.Int
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIIntroPage : Swift.Decodable {
+  public let enabled: Swift.Bool
+  public let content: Swift.String?
+  public let buttonText: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct XeboAPIThankYouPage : Swift.Decodable {
+  public let enabled: Swift.Bool
+  public let content: Swift.String?
+  public let links: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboTextBoxQuestionView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class XeboNativeSurveyManager {
+  public static let shared: XeboNativeSurveyManager
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var currentTheme: XeboTheme? {
+    get
+  }
+  #endif
+  public func configure(with survey: XeboSurvey)
+  public func configure(apiKey: Swift.String, collectorId: Swift.String, zone: Swift.String, environment: XeboEnvironment = .production)
+  public func configure(apiKey: Swift.String, surveyId: Swift.String, zone: Swift.String = "az1", environment: XeboEnvironment = .production)
+  public func configureTheme(_ theme: XeboAppTheme)
+  public func configureTheme(primaryColor: UIKit.UIColor)
+  public func setUser(_ data: XeboUserData)
+  public func clearUser()
+  public func fetchAndPresentSurvey(on parent: UIKit.UIViewController)
+  public func fetchAndPresentLowestResponseSurvey(from surveyUUIDs: [Swift.String], on parent: UIKit.UIViewController)
+  public func startIntercept(afterDelay: Foundation.TimeInterval = 5.0, on parent: UIKit.UIViewController)
+  public func presentSurvey(on parent: UIKit.UIViewController)
+  public func recordAnswer(_ answer: XeboAnswer)
+  public func flushQueue(completion: @escaping (Swift.Bool) -> Swift.Void)
+  public func getQueuedResponses() -> [XeboQueuedResponse]
+  public func clearQueue()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboMultipleChoiceQuestionView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion, isLastQuestion: Swift.Bool = false)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboMultiNPSQuestionView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion, isLastQuestion: Swift.Bool = false)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboMultiRatingQuestionView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onAnswer: ((XeboAnswer) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(question: XeboQuestion, variant: XeboRatingVariant = .star, isLastQuestion: Swift.Bool = false)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboIntroView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var onStart: (() -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public init(page: XeboSurveyPage)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @IBDesignable @_Concurrency.MainActor @preconcurrency public class XeboSurveyView : UIKit.UIView, WebKit.WKScriptMessageHandler, WebKit.WKNavigationDelegate {
@@ -95,3 +585,15 @@ public protocol XeboSurveyDelegate {
   @objc deinit
 }
 extension XeboSwiftUIWrapper : Swift.Sendable {}
+extension XeboQuestionType : Swift.Equatable {}
+extension XeboQuestionType : Swift.Hashable {}
+extension XeboQuestionType : Swift.RawRepresentable {}
+extension XeboThemeMode : Swift.Equatable {}
+extension XeboThemeMode : Swift.Hashable {}
+extension XeboThemeMode : Swift.RawRepresentable {}
+extension XeboEnvironment : Swift.Equatable {}
+extension XeboEnvironment : Swift.Hashable {}
+extension XeboEnvironment : Swift.RawRepresentable {}
+extension XeboRatingVariant : Swift.Equatable {}
+extension XeboRatingVariant : Swift.Hashable {}
+extension XeboRatingVariant : Swift.RawRepresentable {}
