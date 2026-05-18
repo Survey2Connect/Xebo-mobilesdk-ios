@@ -340,6 +340,7 @@ public enum XeboEnvironment : Swift.String {
 @_hasMissingDesignatedInitializers public class XeboNetworkService {
   public static let shared: xebompack_io.XeboNetworkService
   public func configure(apiKey: Swift.String, zone: Swift.String = "az1", environment: xebompack_io.XeboEnvironment = .production)
+  public func setBearerToken(_ token: Swift.String)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class XeboThankYouView : UIKit.UIView {
