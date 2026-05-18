@@ -13638,6 +13638,32 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setBearerToken",
+            "printedName": "setBearerToken(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12xebompack_io18XeboNetworkServiceC14setBearerTokenyySSF",
+            "mangledName": "$s12xebompack_io18XeboNetworkServiceC14setBearerTokenyySSF",
+            "moduleName": "xebompack_io",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -22964,224 +22990,210 @@
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 459,
+      "offset": 496,
       "length": 5,
       "value": "\"az1\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10178,
-      "length": 21,
-      "value": "\"API Key is missing.\""
-    },
-    {
-      "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
-      "kind": "StringLiteral",
-      "offset": 10252,
+      "offset": 13317,
       "length": 72,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10269,
+      "offset": 13334,
       "length": 1,
       "value": "\"\/v3\/survey-management\/surveys\/responses\/response-count\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10412,
+      "offset": 13477,
       "length": 22,
       "value": "\"Invalid URL: \""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10433,
+      "offset": 13498,
       "length": 4,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10482,
+      "offset": 13547,
       "length": 134,
       "value": "\"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10632,
+      "offset": 13697,
       "length": 45,
       "value": "\">>> Xebo SDK [Lowest Response] URL: \""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10676,
+      "offset": 13741,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10693,
+      "offset": 13758,
       "length": 33,
       "value": "\"    surveyUUIDs: \""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10725,
+      "offset": 13790,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10801,
+      "offset": 13866,
       "length": 6,
       "value": "\"POST\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10833,
+      "offset": 13898,
       "length": 18,
       "value": "\"application\/json\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10873,
+      "offset": 13938,
       "length": 14,
       "value": "\"Content-Type\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 10942,
-      "length": 11,
-      "value": "\"x-api-key\""
-    },
-    {
-      "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
-      "kind": "StringLiteral",
-      "offset": 11622,
+      "offset": 14653,
       "length": 18,
       "value": "\"No data received\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "IntegerLiteral",
-      "offset": 11730,
+      "offset": 14761,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 11750,
+      "offset": 14781,
       "length": 29,
       "value": "\"    Status  : \""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 11778,
+      "offset": 14809,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 11850,
+      "offset": 14881,
       "length": 22,
       "value": "\"    Response: \""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 11871,
+      "offset": 14902,
       "length": 4,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "IntegerLiteral",
-      "offset": 11896,
+      "offset": 14927,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "IntegerLiteral",
-      "offset": 11902,
+      "offset": 14933,
       "length": 3,
       "value": "299"
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 12001,
+      "offset": 15032,
       "length": 20,
       "value": "\"HTTP \""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 12020,
+      "offset": 15051,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 12387,
+      "offset": 15418,
       "length": 34,
       "value": "\"surveyUUID not found in response\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 12492,
+      "offset": 15523,
       "length": 47,
       "value": "\"    ✅ Lowest response surveyId: \""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 12538,
+      "offset": 15569,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 12563,
+      "offset": 15594,
       "length": 134,
       "value": "\"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 12790,
+      "offset": 15821,
       "length": 32,
       "value": "\"    ❌ Decode error: \""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 12821,
+      "offset": 15852,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNetworkService.swift",
       "kind": "IntegerLiteral",
-      "offset": 12986,
+      "offset": 16017,
       "length": 1,
       "value": "0"
     },
@@ -23363,14 +23375,14 @@
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNativeSurveyManager.swift",
       "kind": "FloatLiteral",
-      "offset": 11264,
+      "offset": 11878,
       "length": 3,
       "value": "5.0"
     },
     {
       "filePath": "\/Users\/sheetal\/Xebo\/Sdk Material\/mobile-sdk\/xebompack.io\/Native\/Core\/XeboNativeSurveyManager.swift",
       "kind": "StringLiteral",
-      "offset": 18319,
+      "offset": 18933,
       "length": 10,
       "value": "\"complete\""
     },
